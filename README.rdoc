@@ -2,6 +2,10 @@
 
 Aplicación de ejemplo para el curso Ruby on Rails de cero (primer semestre 2013)
 
+== Dispositivas
+
+Ver http://francocatena.github.io/agenda/
+
 == (The MIT License)
 
 Copyright (c) 2013 Franco Catena
