@@ -1,4 +1,5 @@
 class PersonasController < ApplicationController
+  before_action :requerir_persona
   before_action :set_persona, only: [:show, :edit, :update, :destroy]
 
   # GET /personas
@@ -70,6 +71,6 @@ class PersonasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def persona_params
-      params.require(:persona).permit(:nombre, :apellido)
+      params.require(:persona).permit(:nombre, :apellido, :password, :password_confirmation)
     end
 end

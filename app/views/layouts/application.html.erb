@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <% if persona_actual %>
+    <div class="menu">
+      <%= link_to 'Salir', sesion_path, method: :delete %>
+    </div>
+  <% end %>
+  <%= yield %>
 </body>
 </html>

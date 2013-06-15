@@ -19,6 +19,14 @@
     <%= f.label :apellido %><br />
     <%= f.text_field :apellido %>
   </div>
+  <div class="field">
+    <%= f.label :password, 'Clave' %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, 'Confirmación' %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="actions">
     <%= f.submit 'Guardar' %>
   </div>

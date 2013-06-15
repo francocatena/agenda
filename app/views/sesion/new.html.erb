@@ -1,0 +1,17 @@
+<h1>Ingreso</h1>
+
+<%= form_for :sesion, url: sesion_path do |f| %>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :password, 'Clave' %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Ingresar' %>
+  </div>
+<% end %>
+
+<p><%= flash[:alert] || flash[:notice] %></p>
