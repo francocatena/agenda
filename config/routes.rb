@@ -1,4 +1,6 @@
 Agenda::Application.routes.draw do
+  resources :eventos
+
   resource :sesion, only: [:new, :create, :destroy], controller: 'sesion'
 
   resources :personas

@@ -6,7 +6,7 @@ class PersonasController < ApplicationController
   # GET /personas.json
   def index
     @personas = Persona.order('apellido')
-    @personas = @personas.where(nombre: params[:q]) if params[:q].present?
+    @personas = @personas.con_nombre(params[:q]) if params[:q].present?
   end
 
   # GET /personas/1

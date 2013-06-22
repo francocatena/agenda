@@ -1,0 +1,25 @@
+.menu {
+  position: relative;
+  background: #efefef;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  padding: .25em 1em;
+}
+
+.menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.menu ul li {
+  display: inline;
+  margin: 0em 1em 0em 0em;
+}
+
+.menu .salir {
+  position: absolute;
+  right: 1em;
+  top: .25em;
+}

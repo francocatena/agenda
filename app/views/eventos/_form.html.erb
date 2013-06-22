@@ -1,0 +1,30 @@
+<%= form_for(@evento) do |f| %>
+  <% if @evento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@evento.errors.count, 'problema') %></h2>
+
+      <ul>
+      <% @evento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :persona %><br>
+    <%= f.text_field(:persona, data: {
+      autocomplete_field: true,
+      autocomplete_for: '#evento_persona_id',
+      autocomplete_url: personas_path(format: :json)
+    }) %>
+    <%= f.hidden_field :persona_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Guardar' %>
+  </div>
+<% end %>

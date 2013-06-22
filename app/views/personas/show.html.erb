@@ -4,5 +4,13 @@
   <%= @persona.nombre %> <%= @persona.apellido %>
 </h1>
 
+<% unless @persona.eventos.empty? %>
+  <ul>
+    <% @persona.eventos.each do |evento| %>
+      <li><%= evento.descripcion %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= link_to 'Editar', edit_persona_path(@persona) %> |
 <%= link_to 'Volver', personas_path %>
