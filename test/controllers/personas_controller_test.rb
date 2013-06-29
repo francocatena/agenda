@@ -2,48 +2,54 @@ require 'test_helper'
 
 class PersonasControllerTest < ActionController::TestCase
   setup do
-    @persona = personas(:one)
+    @persona = personas(:anakin)
+    session[:persona_id] = @persona.id
   end
 
-  test "should get index" do
+  test 'deberia obtener index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:personas)
   end
 
-  test "should get new" do
+  test 'deberia obtener new' do
     get :new
     assert_response :success
   end
 
-  test "should create persona" do
-    assert_difference('Persona.count') do
-      post :create, persona: { nombre: @persona.nombre }
-    end
-
-    assert_redirected_to persona_path(assigns(:persona))
+test 'deberia crear persona' do
+  assert_difference('Persona.count') do
+    post :create, persona: {
+      nombre: @persona.nombre,
+      apellido: @persona.apellido,
+      password: '123',
+      password_confirmation: '123'
+    }
   end
 
-  test "should show persona" do
+  assert_redirected_to persona_url(assigns(:persona))
+end
+
+  test 'deberia ver persona' do
     get :show, id: @persona
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'deberia obtener editar' do
     get :edit, id: @persona
     assert_response :success
   end
 
-  test "should update persona" do
+  test 'deberia actualizar persona' do
     patch :update, id: @persona, persona: { nombre: @persona.nombre }
-    assert_redirected_to persona_path(assigns(:persona))
+    assert_redirected_to persona_url(assigns(:persona))
   end
 
-  test "should destroy persona" do
+  test 'deberia eliminar persona' do
     assert_difference('Persona.count', -1) do
       delete :destroy, id: @persona
     end
 
-    assert_redirected_to personas_path
+    assert_redirected_to personas_url
   end
 end

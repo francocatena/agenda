@@ -3,47 +3,55 @@ require 'test_helper'
 class EventosControllerTest < ActionController::TestCase
   setup do
     @evento = eventos(:one)
+    @persona = personas(:anakin)
+    session[:persona_id] = @persona.id
   end
 
-  test "should get index" do
+  test 'deberia obtener index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:eventos)
   end
 
-  test "should get new" do
+  test 'deberia obtener new' do
     get :new
     assert_response :success
   end
 
-  test "should create evento" do
+  test 'deberia crear evento' do
     assert_difference('Evento.count') do
-      post :create, evento: { descripcion: @evento.descripcion, persona_id: @evento.persona_id }
+      post :create, evento: {
+        descripcion: @evento.descripcion,
+        persona_id: @evento.persona_id
+      }
     end
 
-    assert_redirected_to evento_path(assigns(:evento))
+    assert_redirected_to evento_url(assigns(:evento))
   end
 
-  test "should show evento" do
+  test 'deberia ver evento' do
     get :show, id: @evento
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'deberia obtener editar' do
     get :edit, id: @evento
     assert_response :success
   end
 
-  test "should update evento" do
-    patch :update, id: @evento, evento: { descripcion: @evento.descripcion, persona_id: @evento.persona_id }
-    assert_redirected_to evento_path(assigns(:evento))
+  test 'deberia actualizar evento' do
+    patch :update, id: @evento, evento: {
+      descripcion: @evento.descripcion,
+      persona_id: @evento.persona_id
+    }
+    assert_redirected_to evento_url(assigns(:evento))
   end
 
-  test "should destroy evento" do
+  test 'deberia eliminar evento' do
     assert_difference('Evento.count', -1) do
       delete :destroy, id: @evento
     end
 
-    assert_redirected_to eventos_path
+    assert_redirected_to eventos_url
   end
 end

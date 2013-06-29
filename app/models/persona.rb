@@ -1,7 +1,7 @@
 class Persona < ActiveRecord::Base
   has_secure_password
 
-  validates :nombre, presence: true
+  validates :nombre, presence: { message: 'no puede estar en blanco' }
 
   has_many :eventos, dependent: :destroy
 

@@ -1,7 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+anakin:
+  nombre: 'Anakin'
+  apellido: 'Skywalker'
+  password_digest: <%= BCrypt::Password.create('123') %>
 
-one:
-  nombre: MyString
-
-two:
-  nombre: MyString
+luke:
+  nombre: 'Luke'
+  apellido: 'Skywalker'
+  password_digest: <%= BCrypt::Password.create('123') %>
